@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    public List<GameObject> doge;
+    public List<GameObject> dogePrefabs;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +18,12 @@ public class Manager : MonoBehaviour
     }
     public void SpawnDog()
     {
-        throw new NotImplementedException();
+        Instantiate(dogePrefabs[RandomDoge()]);
     }
+    private int RandomDoge()
+    {
+        int d = Random.Range(0, dogePrefabs.Count);
+        return d;
+    }
+    
 }
